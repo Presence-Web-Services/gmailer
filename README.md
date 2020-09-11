@@ -2,7 +2,7 @@
 Go module that sends email using GMail OAuth
 
 Example usage:
-`
+```go
 package main
 
 import (
@@ -33,4 +33,4 @@ func main() {
     fmt.Println("Error occured during send")
   }
 }
-`
+```
