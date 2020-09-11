@@ -9,7 +9,7 @@ This is useful in combination with `EmailFrom` set to a no-reply address.
 
 Based on code borrowed from [BinodKafle/gomail](https://github.com/BinodKafle/gomail)
 
-Example usage:
+Example usage (main.go):
 ```go
 package main
 
@@ -41,4 +41,10 @@ func main() {
 		fmt.Println("Error occurred during send")
 	}
 }
+```
+
+How to run:
+```
+go get github.com/Presence-Web-Services/gmailer
+go run main.go
 ```
