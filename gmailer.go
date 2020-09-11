@@ -53,8 +53,8 @@ func (config *Config) Send(gmailService *gmail.Service) (err error) {
   var message gmail.Message
 
   emailTo := "To: " + config.EmailTo + "\r\n"
-  emailFrom := "From " + config.EmailFrom + "\r\n"
-  replyTo := "ReplyTo " + config.ReplyTo + "\r\n"
+  emailFrom := "From " + config.ReplyTo + "<" + config.EmailFrom + ">" + "\r\n"
+  replyTo := "Reply-To " + config.ReplyTo + "\r\n"
   subject := "Subject: " + config.Subject + "\n"
   mime := "MIME-version: 1.0;\nContent-Type: text/plain; charset=\"UTF-8\";\n\n"
   msg := []byte(emailTo + emailFrom + replyTo + subject + mime + "\n" + config.Body)
