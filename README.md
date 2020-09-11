@@ -2,7 +2,9 @@
 Go module that sends email using GMail OAuth.
 
 Email envelope header shows email sent from name as the `ReplyTo` address, while the from address is `EmailFrom`:
+
 `From: reply-to@email.com <email-from@email.com>`
+
 This is useful in combination with `EmailFrom` set to a no-reply address.
 
 Based on code borrowed from [BinodKafle/gomail](https://github.com/BinodKafle/gomail)
