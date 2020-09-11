@@ -30,14 +30,14 @@ type Config struct {
 // Authenticate authenticates with GMail OAuth, and returns a pointer to gmail.Service when successfully authenticated
 func (config *Config) Authenticate() (gmailService *gmail.Service, err error) {
   oauthConfig := oauth2.Config{
-    ClientID:     config.clientID,
-    ClientSecret: config.clientSecret,
+    ClientID:     config.ClientID,
+    ClientSecret: config.ClientSecret,
     Endpoint:     google.Endpoint,
     RedirectURL:  "http://localhost",
   }
   oauthToken := oauth2.Token{
-    AccessToken:  config.accessToken,
-    RefreshToken: config.refreshToken,
+    AccessToken:  config.AccessToken,
+    RefreshToken: config.RefreshToken,
     TokenType:    "Bearer",
     Expiry:       time.Now(),
   }
@@ -52,12 +52,12 @@ func (config *Config) Authenticate() (gmailService *gmail.Service, err error) {
 func (config *Config) Send(gmailService *gmail.Service) (err error) {
   var message gmail.Message
 
-  emailTo := "To: " + config.emailTo + "\r\n"
-  emailFrom := "From " + config.emailFrom + "\r\n"
-  replyTo := "ReplyTo " + config.replyTo + "\r\n"
-  subject := "Subject: " + config.subject + "\n"
+  emailTo := "To: " + config.EmailTo + "\r\n"
+  emailFrom := "From " + config.EmailFrom + "\r\n"
+  replyTo := "ReplyTo " + config.ReplyTo + "\r\n"
+  subject := "Subject: " + config.Subject + "\n"
   mime := "MIME-version: 1.0;\nContent-Type: text/plain; charset=\"UTF-8\";\n\n"
-  msg := []byte(emailTo + emailFrom + replyTo + subject + mime + "\n" + config.body)
+  msg := []byte(emailTo + emailFrom + replyTo + subject + mime + "\n" + config.Body)
 
   message.Raw = base64.URLEncoding.EncodeToString(msg)
 
