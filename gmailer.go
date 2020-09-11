@@ -16,15 +16,15 @@ import (
 
 // Config is type containing OAuth credentials and email message information
 type Config struct {
-  clientID string
-  clientSecret string
-  accessToken string
-  refreshToken string
-  emailTo string
-  emailFrom string
-  replyTo string
-  subject string
-  body string
+  ClientID string
+  ClientSecret string
+  AccessToken string
+  RefreshToken string
+  EmailTo string
+  EmailFrom string
+  ReplyTo string
+  Subject string
+  Body string
 }
 
 // Authenticate authenticates with GMail OAuth, and returns a pointer to gmail.Service when successfully authenticated
