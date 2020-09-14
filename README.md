@@ -31,12 +31,12 @@ func main() {
 		Body:         "This is a test email body... thanks!",
 	}
 
-	var service, err = cfg.Authenticate()
+	var err = cfg.Authenticate()
 	if err != nil {
 		fmt.Println("Error occurred during authenticate")
 	}
 
-	err = cfg.Send(service)
+	err = cfg.Send()
 	if err != nil {
 		fmt.Println("Error occurred during send")
 	}
