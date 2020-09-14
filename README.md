@@ -45,6 +45,6 @@ func main() {
 
 How to run:
 ```
-go get github.com/Presence-Web-Services/gmailer
+go get github.com/Presence-Web-Services/gmailer/v2
 go run main.go
 ```
