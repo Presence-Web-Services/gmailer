@@ -25,10 +25,11 @@ type Config struct {
 	ReplyTo      string
 	Subject      string
 	Body         string
+  Service      *gmail.Service
 }
 
 // Authenticate authenticates with GMail OAuth, and returns a pointer to gmail.Service when successfully authenticated
-func (config *Config) Authenticate() (gmailService *gmail.Service, err error) {
+func (config *Config) Authenticate() (err error) {
 	oauthConfig := oauth2.Config{
 		ClientID:     config.ClientID,
 		ClientSecret: config.ClientSecret,
@@ -44,12 +45,12 @@ func (config *Config) Authenticate() (gmailService *gmail.Service, err error) {
 
 	tokenSource := oauthConfig.TokenSource(context.Background(), &oauthToken)
 
-	gmailService, err = gmail.NewService(context.Background(), option.WithTokenSource(tokenSource))
-	return
+	config.Service, err = gmail.NewService(context.Background(), option.WithTokenSource(tokenSource))
+  return
 }
 
 // Send takes a pointer to gmail.Service and is called on a Config type to send an email
-func (config *Config) Send(gmailService *gmail.Service) (err error) {
+func (config *Config) Send() (err error) {
 	var message gmail.Message
 
 	emailTo := "To: " + config.EmailTo + "\r\n"
@@ -62,6 +63,6 @@ func (config *Config) Send(gmailService *gmail.Service) (err error) {
 	message.Raw = base64.URLEncoding.EncodeToString(msg)
 
 	// Send the message
-	_, err = gmailService.Users.Messages.Send("me", &message).Do()
-	return
+	_, err = config.Service.Users.Messages.Send("me", &message).Do()
+  return
 }
