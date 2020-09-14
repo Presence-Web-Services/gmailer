@@ -15,7 +15,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/Presence-Web-Services/gmailer"
+	"github.com/Presence-Web-Services/gmailer/v2"
 )
 
 func main() {
