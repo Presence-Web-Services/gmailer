@@ -25,7 +25,8 @@ type Config struct {
 	ReplyTo      string
 	Subject      string
 	Body         string
-  Service      *gmail.Service
+	HP           bool
+	Service      *gmail.Service
 }
 
 // Authenticate authenticates with GMail OAuth, and returns a pointer to gmail.Service when successfully authenticated
@@ -46,7 +47,7 @@ func (config *Config) Authenticate() (err error) {
 	tokenSource := oauthConfig.TokenSource(context.Background(), &oauthToken)
 
 	config.Service, err = gmail.NewService(context.Background(), option.WithTokenSource(tokenSource))
-  return
+	return
 }
 
 // Send takes a pointer to gmail.Service and is called on a Config type to send an email
@@ -64,5 +65,5 @@ func (config *Config) Send() (err error) {
 
 	// Send the message
 	_, err = config.Service.Users.Messages.Send("me", &message).Do()
-  return
+	return
 }
