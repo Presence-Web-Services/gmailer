@@ -29,6 +29,7 @@ func main() {
 		ReplyTo:      "reply-to@email.com",
 		Subject:      "Test Subject",
 		Body:         "This is a test email body... thanks!",
+		HP:           false,
 	}
 
 	var err = cfg.Authenticate()
