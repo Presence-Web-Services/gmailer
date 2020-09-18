@@ -1,4 +1,4 @@
-module github.com/Presence-Web-Services/gmailer/v2
+module github.com/presence-web-services/gmailer/v2
 
 go 1.15
 
