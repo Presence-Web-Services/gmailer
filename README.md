@@ -15,7 +15,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/Presence-Web-Services/gmailer/v2"
+	"github.com/presence-web-services/gmailer/v2"
 )
 
 func main() {
@@ -46,6 +46,6 @@ func main() {
 
 How to run:
 ```
-go get github.com/Presence-Web-Services/gmailer/v2
+go get github.com/presence-web-services/gmailer/v2
 go run main.go
 ```
