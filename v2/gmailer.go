@@ -25,7 +25,6 @@ type Config struct {
 	ReplyTo      string
 	Subject      string
 	Body         string
-	HP           bool
 	Service      *gmail.Service
 }
 
